@@ -14,7 +14,6 @@
                 <span class="logo-x">X</span>
             </div>
             <p class="subtitle">AI-powered procurement documents</p>
-            <div class="demo-badge">Demo by Jeff</div>
         </header>
 
         <main>
@@ -22,40 +21,19 @@
                 <h2>Generate Document</h2>
                 <form id="documentForm">
                     <div class="input-group">
-                        <select id="documentType" required>
-                            <option value="">Document type</option>
-                            <option value="functional-requirements">Functional Requirements</option>
-                            <option value="evaluation-criteria">Evaluation Criteria</option>
+                        <select id="agency" required>
+                            <option value="">Select your Agency</option>
+                            <option value="moe">MOE</option>
+                            <option value="htx">HTX</option>
+                            <option value="vital">VITAL</option>
                         </select>
                     </div>
 
                     <div class="input-group">
-                        <select id="procurementCategory" required>
-                            <option value="">Procurement category</option>
-                            <option value="it-services">IT Services</option>
-                            <option value="goods">Goods & Supplies</option>
+                        <select id="budgetRange" required>
+                            <option value="">Budget Range</option>
+                            <option value="6k-90k">$6,000 to $90,000</option>
                         </select>
-                    </div>
-
-                    <div class="input-row">
-                        <div class="input-group">
-                            <select id="budgetRange" required>
-                                <option value="">Budget range</option>
-                                <option value="under-50k">< $50K</option>
-                                <option value="50k-200k">$50K - $200K</option>
-                                <option value="200k-1m">$200K - $1M</option>
-                                <option value="over-1m">> $1M</option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <select id="timeline" required>
-                                <option value="">Timeline</option>
-                                <option value="1-3months">1-3 months</option>
-                                <option value="3-6months">3-6 months</option>
-                                <option value="6-12months">6-12 months</option>
-                                <option value="over-12months">12+ months</option>
-                            </select>
-                        </div>
                     </div>
 
                     <div class="input-group">
