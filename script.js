@@ -41,16 +41,14 @@ class GebizGenerator {
 
     getFormData() {
         return {
-            type: document.getElementById('documentType').value,
-            category: document.getElementById('procurementCategory').value,
+            agency: document.getElementById('agency').value,
             budget: document.getElementById('budgetRange').value,
-            timeline: document.getElementById('timeline').value,
             requirements: document.getElementById('specificRequirements').value
         };
     }
 
     isValid(data) {
-        if (!data.type || !data.category || !data.budget || !data.timeline) {
+        if (!data.agency || !data.budget) {
             this.showError('Please fill in all required fields');
             return false;
         }
@@ -61,24 +59,19 @@ class GebizGenerator {
         // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 1500));
         
-        const typeNames = {
-            'functional-requirements': 'FUNCTIONAL REQUIREMENTS',
-            'evaluation-criteria': 'EVALUATION CRITERIA'
+        const agencyNames = {
+            'moe': 'Ministry of Education (MOE)',
+            'htx': 'Home Team Science and Technology Agency (HTX)',
+            'vital': 'VITAL'
         };
 
-        const categoryNames = {
-            'it-services': 'IT Services',
-            'goods': 'Goods & Supplies'
-        };
+        return `PROCUREMENT DOCUMENT
 
-        return `${typeNames[data.type]}
-
-Category: ${categoryNames[data.category]}
-Budget: ${data.budget.replace('-', ' - ').replace('k', 'K').replace('m', 'M')}
-Timeline: ${data.timeline.replace('-', ' - ')}
+Agency: ${agencyNames[data.agency]}
+Budget: ${data.budget}
 
 OVERVIEW
-This document specifies the ${typeNames[data.type].toLowerCase()} for ${categoryNames[data.category].toLowerCase()}.
+This document specifies the procurement requirements for the selected agency.
 
 REQUIREMENTS
 ${data.requirements || 'Standard procurement requirements as per GEBIZ guidelines.'}
